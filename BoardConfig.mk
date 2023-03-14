@@ -38,6 +38,7 @@ TARGET_RECOVERY_DEVICE_MODULES := init_xiaomi_mi8937
 
 # Kernel
 BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent androidboot.boot_devices=soc/7824900.sdhci
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive earlycon=msm_hsl_uart,0x78b0000
 
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
 TARGET_KERNEL_CONFIG := vendor/mi8937_defconfig
