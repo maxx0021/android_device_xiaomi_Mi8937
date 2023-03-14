@@ -125,12 +125,12 @@ on property:ro.vendor.xiaomi.device=rolex
 
 on property:ro.vendor.xiaomi.series=ulysse
     chown system system /dev/lirc0
-    setprop ro.hardware.consumerir lirc
+    setprop ro.hardware.consumerir led
     restart vendor.ir-hal-1-0
 
 on property:ro.vendor.xiaomi.device=riva
     chown system system /dev/spidev7.1
-    setprop ro.hardware.consumerir spidev
+    setprop ro.hardware.consumerir led
     restart vendor.ir-hal-1-0
 
 # Netmgrd
