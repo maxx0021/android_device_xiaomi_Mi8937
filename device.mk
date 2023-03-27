@@ -38,7 +38,8 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/audio/,$(TARGET_COPY_OUT_VENDOR)/etc/)
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/audio/,$(TARGET_COPY_OUT_ODM)/etc/) \
+    $(LOCAL_PATH)/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml
 
 # Camera
 PRODUCT_COPY_FILES += \
@@ -60,10 +61,10 @@ PRODUCT_PACKAGES += \
 
 # Input
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/keylayout/,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/) \
-    $(LOCAL_PATH)/keylayout/fts_ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ft5346.kl \
-    $(LOCAL_PATH)/keylayout/fts_ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ft5x06_720p.kl \
-    $(LOCAL_PATH)/keylayout/uinput-gf.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gf3208.kl
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/keylayout/,$(TARGET_COPY_OUT_ODM)/usr/keylayout/) \
+    $(LOCAL_PATH)/keylayout/fts_ts.kl:$(TARGET_COPY_OUT_ODM)/usr/keylayout/ft5346.kl \
+    $(LOCAL_PATH)/keylayout/fts_ts.kl:$(TARGET_COPY_OUT_ODM)/usr/keylayout/ft5x06_720p.kl \
+    $(LOCAL_PATH)/keylayout/uinput-gf.kl:$(TARGET_COPY_OUT_ODM)/usr/keylayout/gf3208.kl
 
 # Recovery
 PRODUCT_COPY_FILES += \
