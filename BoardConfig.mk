@@ -6,7 +6,7 @@
 
 # Partitions
 SSI_PARTITIONS := product system system_ext
-TREBLE_PARTITIONS := vendor
+TREBLE_PARTITIONS := odm vendor
 ALL_PARTITIONS := $(SSI_PARTITIONS) $(TREBLE_PARTITIONS)
 
 $(foreach p, $(call to-upper, $(ALL_PARTITIONS)), \
@@ -72,12 +72,16 @@ BOARD_MI8937_DYNPART_PARTITION_LIST := $(ALL_PARTITIONS)
 $(foreach p, $(call to-upper, $(SSI_PARTITIONS)), \
     $(eval BOARD_$(p)IMAGE_EXTFS_INODE_COUNT := -1))
 $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
-    $(eval BOARD_$(p)IMAGE_EXTFS_INODE_COUNT := 6144))
+    $(eval BOARD_$(p)IMAGE_EXTFS_INODE_COUNT := 4096))
 
 $(foreach p, $(call to-upper, $(SSI_PARTITIONS)), \
-    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 41943040)) # 40 MB
+    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 83886080)) # 80 MB
 $(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
-    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 209715200)) # 200 MB
+    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 41943040)) # 40 MB
+
+ifneq ($(WITH_GMS),true)
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 838860800 # 800 MB
+endif
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/sys/dev/dt2w"
