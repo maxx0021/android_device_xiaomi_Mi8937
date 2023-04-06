@@ -43,7 +43,7 @@ ifeq ($(TARGET_KERNEL_VERSION),4.19)
 TARGET_KERNEL_CONFIG := vendor/mi8937_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937-4.19
 else
-TARGET_KERNEL_CONFIG := mi8937_defconfig
+TARGET_KERNEL_CONFIG := lineageos_mi8937_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
 endif
 
